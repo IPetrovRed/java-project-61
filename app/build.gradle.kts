@@ -1,5 +1,7 @@
 plugins {
     application
+    id("java")
+    jacoco
 
 }
 
