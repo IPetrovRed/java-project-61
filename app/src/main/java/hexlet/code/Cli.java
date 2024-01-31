@@ -3,10 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 class Cli {
-    public static void brainGames() {
-
+    public static void getName() {
         Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
-        System.out.println(a);
+        String name = scan.nextLine();
+        System.out.println("Hello, " + name);
     }
 }
