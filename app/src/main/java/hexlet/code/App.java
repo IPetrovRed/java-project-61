@@ -2,7 +2,7 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("hello\nEnter your name");
+        System.out.println("Please enter the game number and press Enter.");
         Cli.getName();
 
     }
