@@ -14,7 +14,8 @@ public class Engine {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int correctAnswersCount = 0;
-        while (correctAnswersCount < 3) {
+        int consecutiveCorrectAnswersCount = 0;
+        while (consecutiveCorrectAnswersCount < 3) {
             int number = (int) (Math.random() * 100) + 1;
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
@@ -26,11 +27,11 @@ public class Engine {
 
             if (isCorrectAnswer) {
                 System.out.println("Correct!");
-                correctAnswersCount++;
+                consecutiveCorrectAnswersCount++;
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + (isEven ? "no" : "yes") + "'.");
                 System.out.println("Let's try again, " + name + "!");
-                return;
+                consecutiveCorrectAnswersCount = 0;
             }
         }
 
