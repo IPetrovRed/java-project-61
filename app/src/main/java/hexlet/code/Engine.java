@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void gameChoicer(){
+    public static void gameChoicer() {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
@@ -21,7 +21,7 @@ public class Engine {
                 Games.playCalc();
                 break;
             case 4:
-                Games.GCD();
+                Games.gcdGame();
                 break;
             case 5:
                 Games.progressionGame();
@@ -37,5 +37,4 @@ public class Engine {
                 break;
         }
     }
-
 }

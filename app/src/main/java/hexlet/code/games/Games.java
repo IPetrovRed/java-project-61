@@ -7,7 +7,7 @@ import java.util.Arrays;
 import hexlet.code.Cli;
 
 public class Games {
-    public static int gamesLimit(){
+    public static int gamesLimit() {
         // ограничиваем кол-во раундов
         return 3;
     }
@@ -32,15 +32,15 @@ public class Games {
                 System.out.println("Correct!");
                 correctCount++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + (isEven ? "yes" : "no") + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(.\n"
+                        + " Correct answer was '" + (isEven ? "yes" : "no") + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 correctCount = 0;
             }
         }
-
         System.out.println("Congratulations, " + name + "!");
     }
-    public static void playCalc(){
+    public static void playCalc() {
         Cli.greet4Games();
         String name = Cli.getName();
         System.out.println("Hello, " + name + "!");
@@ -69,6 +69,8 @@ public class Games {
                     operatorSymbol = "*";
                     result = firstNumber * secondNumber;
                     break;
+                default:
+                    break;
             }
 
             System.out.println("Question: " + firstNumber + " " + operatorSymbol + " " + secondNumber);
@@ -87,8 +89,7 @@ public class Games {
         System.out.println("Congratulations, " + name + "!");
 
     }
-
-    public static void GCD (){
+    public static void gcdGame() {
         Cli.greet4Games();
         String name = Cli.getName();
         System.out.println("Hello, " + name + "!");
@@ -111,7 +112,8 @@ public class Games {
                 System.out.println("Correct!");
                 correctCount++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(.\n"
+                        + " Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 correctCount = 0;
             }
@@ -131,7 +133,7 @@ public class Games {
         }
         return num1;
     }
-    public static void progressionGame(){
+    public static void progressionGame() {
         Cli.greet4Games();
         String name = Cli.getName();
         System.out.println("Hello, " + name + "!");
@@ -157,7 +159,8 @@ public class Games {
                 System.out.println("Correct!");
                 correctCount++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. Let's try again!");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(.\n"
+                        + " Correct answer was '" + correctAnswer + "'. Let's try again!");
                 correctCount = 0;
             }
         }
@@ -197,7 +200,8 @@ public class Games {
                 correctCount++;
             } else {
                 String correctAnswer = isPrime ? "yes" : "no";
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. Let's try again!");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(.\n"
+                        + " Correct answer was '" + correctAnswer + "'. Let's try again!");
                 correctCount = 0;
             }
         }
