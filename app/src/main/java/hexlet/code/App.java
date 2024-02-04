@@ -12,21 +12,6 @@ public class App {
                         "0 - Exit");
         System.out.print("Your choice: ");
 
-        int choice = scanner.nextInt();
-
-        switch (choice) {
-            case 1:
-                Cli.greet();
-                break;
-            case 2:
-                Engine.playEven();
-                break;
-            case 0:
-                System.out.println("Goodbye!");
-                break;
-            default:
-                System.out.println("Invalid choice!");
-                break;
-        }
+        Engine.gameChoicer();
     }
 }
