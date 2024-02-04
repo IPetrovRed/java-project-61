@@ -2,16 +2,15 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
+import hexlet.code.Cli;
+
 public class Games {
     public static void playEven() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String name = scanner.nextLine();
-
+        Cli.greet4Games();
+        String name = Cli.getName();
         System.out.println("Hello, " + name + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Scanner scanner = new Scanner(System.in);
 
         int correctAnswersCount = 0;
         int consecutiveCorrectAnswersCount = 0;
@@ -36,6 +35,53 @@ public class Games {
         }
 
         System.out.println("Congratulations, " + name + "!");
+    }
+    public static void playCalc(){
+        Cli.greet4Games();
+        String name = Cli.getName();
+        System.out.println("Hello, " + name + "!");
+        System.out.println("What is the result of the expression?");
+        Scanner scanner = new Scanner(System.in);
+
+        int correctCount = 0;
+
+        while (correctCount < 3) {
+            int firstNumber = (int) (Math.random() * 10);
+            int secondNumber = (int) (Math.random() * 10);
+            int operator = (int) (Math.random() * 3);
+            String operatorSymbol = "";
+            int result = 0;
+
+            switch (operator) {
+                case 0:
+                    operatorSymbol = "+";
+                    result = firstNumber + secondNumber;
+                    break;
+                case 1:
+                    operatorSymbol = "-";
+                    result = firstNumber - secondNumber;
+                    break;
+                case 2:
+                    operatorSymbol = "*";
+                    result = firstNumber * secondNumber;
+                    break;
+            }
+
+            System.out.println("Question: " + firstNumber + " " + operatorSymbol + " " + secondNumber);
+            System.out.print("Your answer: ");
+            int answer = scanner.nextInt();
+
+            if (answer == result) {
+                System.out.println("Correct!");
+                correctCount++;
+            } else {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
+                System.out.println("Let's try again, " + name + "!");
+                correctCount = 0;
+            }
+        }
+        System.out.println("Congratulations, " + name + "!");
+
     }
 
 
