@@ -20,6 +20,9 @@ public class Engine {
             case 3:
                 Games.playCalc();
                 break;
+            case 4:
+                Games.GCD();
+                break;
             case 0:
                 System.out.println("Goodbye!");
                 break;
