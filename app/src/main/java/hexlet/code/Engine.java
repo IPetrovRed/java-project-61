@@ -23,6 +23,9 @@ public class Engine {
             case 4:
                 Games.GCD();
                 break;
+            case 5:
+                Games.progression();
+                break;
             case 0:
                 System.out.println("Goodbye!");
                 break;

@@ -129,6 +129,13 @@ public class Games {
         }
         return num1;
     }
+    public static void progression(){
+        Cli.greet4Games();
+        String name = Cli.getName();
+        System.out.println("Hello, " + name + "!");
+        System.out.println("What number is missing in the progression?");
+        System.out.println("some code");
+    }
 }
 
 
