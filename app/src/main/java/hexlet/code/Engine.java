@@ -26,6 +26,9 @@ public class Engine {
             case 5:
                 Games.progressionGame();
                 break;
+            case 6:
+                Games.primeGame();
+                break;
             case 0:
                 System.out.println("Goodbye!");
                 break;
