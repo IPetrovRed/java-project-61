@@ -6,33 +6,34 @@ import java.util.Scanner;
 
 public class Even {
     public static void playEven() {
-        Engine.greet4Games();
-        String name = Engine.getName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        String gameQuestion = "\nAnswer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.greetForUser();
         Scanner scanner = new Scanner(System.in);
+        String name = Engine.getName();
+        Engine.helloUser(name);
+        System.out.println(gameQuestion);
 
         int correctCount = 0;
+
         while (correctCount < Games.gamesLimit()) {
             int number = (int) (Math.random() * 100) + 1;
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            String answer = scanner.nextLine();
+            Engine.question(number);
+            String userAnswer = scanner.nextLine();
 
             boolean isEven = number % 2 == 0;
-            boolean isCorrectAnswer = (isEven && answer.equals("yes")) || (!isEven && answer.equals("no"));
+            boolean isCorrectAnswer = (isEven && userAnswer.equals("yes")) || (!isEven && userAnswer.equals("no"));
+            String correctAnswer = (isEven ? "yes" : "no");
 
             if (isCorrectAnswer) {
-                System.out.println("Correct!");
+                Engine.correctAnswer();
                 correctCount++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(."
-                        + "Correct answer was '" + (isEven ? "yes" : "no") + "'.");
-                System.out.println("Let's try again, " + name + "!");
+                Engine.wrongAnswerForText(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3){
-            System.out.println("Congratulations, " + name + "!");
+        }
+        if (correctCount == 3){
+            Engine.congrats(name);
         }
     }
 }

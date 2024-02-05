@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class GCD {
     public static void gcdGame() {
-        Engine.greet4Games();
-        String name = Engine.getName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("Find the greatest common divisor of given numbers.");
+        String gameQuestion = "\nFind the greatest common divisor of given numbers.";
+        Engine.greetForUser();
         Scanner scanner = new Scanner(System.in);
+        String name = Engine.getName();
+        Engine.helloUser(name);
+        System.out.println(gameQuestion);
 
         int correctCount = 0;
 
@@ -18,22 +19,20 @@ public class GCD {
             int num2 = getRandomNumber();
 
             System.out.println("Question: " + num1 + " " + num2);
-            System.out.print("Your answer: ");
+            Engine.userAnswer();
             int userAnswer = scanner.nextInt();
 
             int correctAnswer = calculateGCD(num1, num2);
 
             if (userAnswer == correctAnswer) {
-                System.out.println("Correct!");
+                Engine.correctAnswer();
                 correctCount++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(."
-                        + "Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + name + "!");
+                Engine.wrongAnswerForNums(userAnswer, correctAnswer, name);
                 break;
             }
         } if (correctCount == 3){
-            System.out.println("Congratulations, " + name + "!");
+            Engine.congrats(name);
         }
     }
 

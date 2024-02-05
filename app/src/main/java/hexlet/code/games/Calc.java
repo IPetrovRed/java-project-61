@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public class Calc {
     public static void playCalc() {
-        Engine.greet4Games();
-        String name = Engine.getName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("What is the result of the expression?");
+        String gameQuestion = "\nWhat is the result of the expression?";
+        Engine.greetForUser();
         Scanner scanner = new Scanner(System.in);
+        String name = Engine.getName();
+        Engine.helloUser(name);
+        System.out.println(gameQuestion);
 
         int correctCount = 0;
 
@@ -19,40 +20,38 @@ public class Calc {
             int secondNumber = (int) (Math.random() * 100);
             int operator = (int) (Math.random() * 3);
             String operatorSymbol = "";
-            int result = 0;
+            int correctAnswer = 0;
 
             switch (operator) {
                 case 0:
                     operatorSymbol = "+";
-                    result = firstNumber + secondNumber;
+                    correctAnswer = firstNumber + secondNumber;
                     break;
                 case 1:
                     operatorSymbol = "-";
-                    result = firstNumber - secondNumber;
+                    correctAnswer = firstNumber - secondNumber;
                     break;
                 case 2:
                     operatorSymbol = "*";
-                    result = firstNumber * secondNumber;
+                    correctAnswer = firstNumber * secondNumber;
                     break;
                 default:
                     break;
             }
 
             System.out.println("Question: " + firstNumber + " " + operatorSymbol + " " + secondNumber);
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
+            Engine.userAnswer();
+            int userAnswer = scanner.nextInt();
 
-            if (answer == result) {
-                System.out.println("Correct!");
+            if (userAnswer == correctAnswer) {
+                Engine.correctAnswer();
                 correctCount++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(."
-                        + "Correct answer was '" + result + "'.");
-                System.out.println("Let's try again, " + name + "!");
+                Engine.wrongAnswerForNums(userAnswer, correctAnswer, name);
                 break;
             }
         } if (correctCount == 3){
-            System.out.println("Congratulations, " + name + "!");
+            Engine.congrats(name);
         }
     }
 }

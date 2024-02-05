@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public class Prime {
     public static void primeGame() {
-        Engine.greet4Games();
-        String name = Engine.getName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'");
+        String gameQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'";
+        Engine.greetForUser();
         Scanner scanner = new Scanner(System.in);
+        String name = Engine.getName();
+        Engine.helloUser(name);
+        System.out.println(gameQuestion);
         Random random = new Random();
 
         int correctCount = 0;
@@ -18,21 +19,20 @@ public class Prime {
         while (correctCount < Games.gamesLimit()) {
             int numberToCheck = (int) (Math.random() * 100) + 1;
             System.out.println("Question: " + numberToCheck);
-            System.out.print("Your answer: ");
+            Engine.userAnswer();
             String userAnswer = scanner.next().toLowerCase();
             boolean isPrime = isPrime(numberToCheck);
 
             if ((isPrime && userAnswer.equals("yes")) || (!isPrime && userAnswer.equals("no"))) {
-                System.out.println("Correct!");
+                Engine.correctAnswer();
                 correctCount++;
             } else {
                 String correctAnswer = isPrime ? "yes" : "no";
-                System.out.println("'" + userAnswer + "' is wrong answer ;(." +
-                        "Correct answer was '" + correctAnswer + "'. Let's try again!");
+                Engine.wrongAnswerForText(userAnswer, correctAnswer, name);
                 break;
             }
         } if (correctCount == 3){
-            System.out.println("Congratulations, " + name + "!");
+            Engine.congrats(name);
         }
     }
 
