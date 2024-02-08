@@ -25,8 +25,10 @@ public class Progression {
             int correctAnswer = progression[hiddenIndex];
             progression[hiddenIndex] = -1;
 
-            Engine.question("Question: "
-                    + Arrays.toString(progression).replaceAll("-1", ".."));
+            String formattedProgression = Arrays.toString(progression)
+                    .replaceAll("-1", "..")
+                    .replaceAll(", ", " ");
+            Engine.question("Question: " + formattedProgression);
             Engine.userAnswer();
             int userAnswer = new Scanner(System.in).nextInt();
 
