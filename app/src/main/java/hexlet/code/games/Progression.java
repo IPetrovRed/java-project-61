@@ -19,7 +19,6 @@ public class Progression {
 
         while (correctCount < Engine.gameLimit()) {
 
-//            int progressionLength = random.nextInt(6) + 6;
             int progressionLength = 8;
             int[] progression = generateProgression(progressionLength, random);
             int hiddenIndex = random.nextInt(progressionLength);
@@ -27,8 +26,10 @@ public class Progression {
             progression[hiddenIndex] = -1;
 
             String formattedProgression = Arrays.toString(progression)
-                    .replaceAll("-1", "..")
-                    .replaceAll(", ", " ");
+                    .replace("-1", "..")
+                    .replace(", ", " ")
+                    .replace("[", "")
+                    .replace("]", "");
             Engine.question("Question: " + formattedProgression);
             Engine.userAnswer();
             int userAnswer = new Scanner(System.in).nextInt();
