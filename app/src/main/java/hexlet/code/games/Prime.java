@@ -6,21 +6,21 @@ import java.util.Scanner;
 
 public class Prime {
     public static void primeGame() {
-        String gameQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'";
+        String description  = "\nAnswer 'yes' if given number is prime. Otherwise answer 'no'";
         Engine.greetForUser();
-        Scanner scanner = new Scanner(System.in);
         String name = Engine.getName();
         Engine.helloUser(name);
-        System.out.println(gameQuestion);
-        Random random = new Random();
+        Engine.gameDescription(description);
+
+//        Random random = new Random();
 
         int correctCount = 0;
 
         while (correctCount < Games.gamesLimit()) {
-            int numberToCheck = (int) (Math.random() * 100) + 1;
-            System.out.println("Question: " + numberToCheck);
+            int numberToCheck = Utils.generateRandomNumber();
+            Engine.question("Question: " + numberToCheck);
             Engine.userAnswer();
-            String userAnswer = scanner.next().toLowerCase();
+            String userAnswer = getUserAnswer();
             boolean isPrime = isPrime(numberToCheck);
 
             if ((isPrime && userAnswer.equals("yes")) || (!isPrime && userAnswer.equals("no"))) {
@@ -32,7 +32,7 @@ public class Prime {
                 break;
             }
         } if (correctCount == 3) {
-            Engine.congrats(Engine.getName());
+            Engine.congrats(name);
         }
     }
 
@@ -49,4 +49,9 @@ public class Prime {
 
         return true;
     }
+    private static String getUserAnswer() {
+        Engine.userAnswer();
+        return Engine.scanner.next();
+    }
+
 }

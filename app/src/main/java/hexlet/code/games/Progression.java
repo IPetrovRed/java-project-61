@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class Progression {
     public static void progressionGame() {
-        String gameQuestion = "\nWhat number is missing in the progression?";
+        String description = "\nWhat number is missing in the progression?";
         Engine.greetForUser();
         String name = Engine.getName();
         Engine.helloUser(name);
-        System.out.println(gameQuestion);
+        Engine.gameDescription(description);
 
         Random random = new Random();
 
@@ -25,7 +25,8 @@ public class Progression {
             int correctAnswer = progression[hiddenIndex];
             progression[hiddenIndex] = -1;
 
-            System.out.println("Question: " + Arrays.toString(progression).replaceAll("-1", ".."));
+            Engine.question("Question: "
+                    + Arrays.toString(progression).replaceAll("-1", ".."));
             Engine.userAnswer();
             int userAnswer = new Scanner(System.in).nextInt();
 
@@ -37,7 +38,7 @@ public class Progression {
                 break;
             }
         } if (correctCount == 3) {
-            Engine.congrats(Engine.getName());
+            Engine.congrats(name);
         }
     }
 
