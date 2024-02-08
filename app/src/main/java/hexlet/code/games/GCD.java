@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Scanner;
 
 public class GCD {
     public static void gcdGame() {
@@ -13,7 +12,7 @@ public class GCD {
 
         int correctCount = 0;
 
-        while (correctCount < Games.gamesLimit()) {
+        while (correctCount < Engine.gameLimit()) {
             int num1 = Utils.generateRandomNumber();
             int num2 = Utils.generateRandomNumber();
 
@@ -30,7 +29,7 @@ public class GCD {
                 Engine.wrongAnswerNumbers(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3) {
+        } if (correctCount == Engine.gameLimit()) {
             Engine.congrats(name);
         }
     }

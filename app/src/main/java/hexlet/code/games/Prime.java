@@ -1,8 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Prime {
     public static void primeGame() {
@@ -12,11 +10,9 @@ public class Prime {
         Engine.helloUser(name);
         Engine.gameDescription(description);
 
-//        Random random = new Random();
-
         int correctCount = 0;
 
-        while (correctCount < Games.gamesLimit()) {
+        while (correctCount < Engine.gameLimit()) {
             int numberToCheck = Utils.generateRandomNumber();
             Engine.question("Question: " + numberToCheck);
             Engine.userAnswer();
@@ -31,7 +27,7 @@ public class Prime {
                 Engine.wrongAnswer(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3) {
+        } if (correctCount == Engine.gameLimit()) {
             Engine.congrats(name);
         }
     }

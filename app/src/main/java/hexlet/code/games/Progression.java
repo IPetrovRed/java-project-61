@@ -17,7 +17,7 @@ public class Progression {
 
         int correctCount = 0;
 
-        while (correctCount < Games.gamesLimit()) {
+        while (correctCount < Engine.gameLimit()) {
 
             int progressionLength = random.nextInt(6) + 5;
             int[] progression = generateProgression(progressionLength, random);
@@ -37,7 +37,7 @@ public class Progression {
                 Engine.wrongAnswerNumbers(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3) {
+        } if (correctCount == Engine.gameLimit()) {
             Engine.congrats(name);
         }
     }
