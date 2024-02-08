@@ -19,7 +19,8 @@ public class Progression {
 
         while (correctCount < Engine.gameLimit()) {
 
-            int progressionLength = random.nextInt(6) + 6;
+//            int progressionLength = random.nextInt(6) + 6;
+            int progressionLength = 8;
             int[] progression = generateProgression(progressionLength, random);
             int hiddenIndex = random.nextInt(progressionLength);
             int correctAnswer = progression[hiddenIndex];
