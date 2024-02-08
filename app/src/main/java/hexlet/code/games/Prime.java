@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static void primeGame() {
-        String description  = "\nAnswer 'yes' if given number is prime. Otherwise answer 'no'";
+        String description  = "\nAnswer 'yes' if given number is prime. Otherwise answer 'no'.";
         Engine.greetForUser();
         String name = Engine.getName();
         Engine.helloUser(name);
