@@ -7,9 +7,8 @@ import java.util.Scanner;
 
 public class Progression {
     public static void progressionGame() {
-        String gameQuestion = "What number is missing in the progression?";
+        String gameQuestion = "\nWhat number is missing in the progression?";
         Engine.greetForUser();
-        Scanner scanner = new Scanner(System.in);
         String name = Engine.getName();
         Engine.helloUser(name);
         System.out.println(gameQuestion);
@@ -20,11 +19,11 @@ public class Progression {
 
         while (correctCount < Games.gamesLimit()) {
 
-            int progressionLength = random.nextInt(6) + 5; // Случайная длинна 5 или 10
+            int progressionLength = random.nextInt(6) + 5;
             int[] progression = generateProgression(progressionLength, random);
             int hiddenIndex = random.nextInt(progressionLength);
             int correctAnswer = progression[hiddenIndex];
-            progression[hiddenIndex] = -1; // -1 для скрытых значений
+            progression[hiddenIndex] = -1;
 
             System.out.println("Question: " + Arrays.toString(progression).replaceAll("-1", ".."));
             Engine.userAnswer();
@@ -34,11 +33,11 @@ public class Progression {
                 Engine.correctAnswer();
                 correctCount++;
             } else {
-                Engine.wrongAnswerForNums(userAnswer,correctAnswer,name);
+                Engine.wrongAnswerNumbers(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3){
-            Engine.congrats(name);
+        } if (correctCount == 3) {
+            Engine.congrats(Engine.getName());
         }
     }
 

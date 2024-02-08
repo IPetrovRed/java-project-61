@@ -5,22 +5,21 @@ import java.util.Scanner;
 
 public class GCD {
     public static void gcdGame() {
-        String gameQuestion = "\nFind the greatest common divisor of given numbers.";
+        String description = "\nFind the greatest common divisor of given numbers.";
         Engine.greetForUser();
-        Scanner scanner = new Scanner(System.in);
         String name = Engine.getName();
         Engine.helloUser(name);
-        System.out.println(gameQuestion);
+        Engine.gameDescription(description);
 
         int correctCount = 0;
 
         while (correctCount < Games.gamesLimit()) {
-            int num1 = getRandomNumber();
-            int num2 = getRandomNumber();
+            int num1 = Utils.generateRandomNumber();
+            int num2 = Utils.generateRandomNumber();
 
-            System.out.println("Question: " + num1 + " " + num2);
+            Engine.question("Question: " + num1 + " " + num2);
             Engine.userAnswer();
-            int userAnswer = scanner.nextInt();
+            int userAnswer = getUserAnswer();
 
             int correctAnswer = calculateGCD(num1, num2);
 
@@ -28,17 +27,14 @@ public class GCD {
                 Engine.correctAnswer();
                 correctCount++;
             } else {
-                Engine.wrongAnswerForNums(userAnswer, correctAnswer, name);
+                Engine.wrongAnswerNumbers(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3){
+        } if (correctCount == 3) {
             Engine.congrats(name);
         }
     }
 
-    public static int getRandomNumber() {
-        return (int) (Math.random() * 100) + 1;
-    }
     public static int calculateGCD(int num1, int num2) {
         while (num2 != 0) {
             int temp = num2;
@@ -46,5 +42,9 @@ public class GCD {
             num1 = temp;
         }
         return num1;
+    }
+    private static int getUserAnswer() {
+        Engine.userAnswer();
+        return Engine.scanner.nextInt();
     }
 }

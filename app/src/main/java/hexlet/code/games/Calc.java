@@ -2,56 +2,83 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public class Calc {
     public static void playCalc() {
-        String gameQuestion = "\nWhat is the result of the expression?";
+        String description = "\nWhat is the result of the expression?";
         Engine.greetForUser();
-        Scanner scanner = new Scanner(System.in);
         String name = Engine.getName();
         Engine.helloUser(name);
-        System.out.println(gameQuestion);
+        Engine.gameDescription(description);
 
         int correctCount = 0;
 
-        while (correctCount < Games.gamesLimit()) {
-            int firstNumber = (int) (Math.random() * 100);
-            int secondNumber = (int) (Math.random() * 100);
-            int operator = (int) (Math.random() * 3);
+        while (correctCount < Engine.gameLimit()) {
+            int firstNumber = Utils.generateRandomNumber();
+            int secondNumber = Utils.generateRandomNumber();
+            int operator = Utils.generateRandomOperator();
             String operatorSymbol = "";
-            int correctAnswer = 0;
 
             switch (operator) {
                 case 0:
                     operatorSymbol = "+";
-                    correctAnswer = firstNumber + secondNumber;
                     break;
                 case 1:
                     operatorSymbol = "-";
-                    correctAnswer = firstNumber - secondNumber;
                     break;
                 case 2:
                     operatorSymbol = "*";
-                    correctAnswer = firstNumber * secondNumber;
                     break;
                 default:
                     break;
             }
 
-            System.out.println("Question: " + firstNumber + " " + operatorSymbol + " " + secondNumber);
-            Engine.userAnswer();
-            int userAnswer = scanner.nextInt();
+            Engine.question("Question: "
+                + firstNumber
+                + " "
+                + operatorSymbol
+                + " "
+                + secondNumber
+                + "\n");
+            int userAnswer = getUserAnswer();
+
+            int correctAnswer = calculateAnswer(firstNumber, secondNumber, operator);
 
             if (userAnswer == correctAnswer) {
                 Engine.correctAnswer();
                 correctCount++;
             } else {
-                Engine.wrongAnswerForNums(userAnswer, correctAnswer, name);
+                Engine.wrongAnswer(String.valueOf(userAnswer), String.valueOf(correctAnswer), name);
                 break;
             }
-        } if (correctCount == 3){
+        }
+
+        if (correctCount == Engine.gameLimit()) {
             Engine.congrats(name);
         }
     }
+
+    private static int calculateAnswer(int firstNumber, int secondNumber, int operator) {
+        int result = 0;
+
+        switch (operator) {
+            case 0:
+                result = firstNumber + secondNumber;
+                break;
+            case 1:
+                result = firstNumber - secondNumber;
+                break;
+            case 2:
+                result = firstNumber * secondNumber;
+                break;
+            default:
+                break;
+        }
+        return result;
+    }
+
+    private static int getUserAnswer() {
+        Engine.userAnswer();
+        return Engine.scanner.nextInt();
+    }
 }
+

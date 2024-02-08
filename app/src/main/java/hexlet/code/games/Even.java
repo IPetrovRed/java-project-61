@@ -2,23 +2,21 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public class Even {
     public static void playEven() {
-        String gameQuestion = "\nAnswer 'yes' if the number is even, otherwise answer 'no'.";
+        String description = "\nAnswer 'yes' if the number is even, otherwise answer 'no'.";
         Engine.greetForUser();
-        Scanner scanner = new Scanner(System.in);
         String name = Engine.getName();
         Engine.helloUser(name);
-        System.out.println(gameQuestion);
+        Engine.gameDescription(description);
 
         int correctCount = 0;
 
-        while (correctCount < Games.gamesLimit()) {
-            int number = (int) (Math.random() * 100) + 1;
-            Engine.question(number);
-            String userAnswer = scanner.nextLine();
+        while (correctCount < Engine.gameLimit()) {
+            int number = Utils.generateRandomNumber();
+            Engine.question("Question: "
+                    + number);
+            String userAnswer = getUserAnswer();
 
             boolean isEven = number % 2 == 0;
             boolean isCorrectAnswer = (isEven && userAnswer.equals("yes")) || (!isEven && userAnswer.equals("no"));
@@ -28,12 +26,17 @@ public class Even {
                 Engine.correctAnswer();
                 correctCount++;
             } else {
-                Engine.wrongAnswerForText(userAnswer, correctAnswer, name);
+                Engine.wrongAnswer(userAnswer, correctAnswer, name);
                 break;
             }
         }
-        if (correctCount == 3){
+        if (correctCount == Engine.gameLimit()) {
             Engine.congrats(name);
         }
     }
+    private static String getUserAnswer() {
+        Engine.userAnswer();
+        return Engine.scanner.next();
+    }
+
 }

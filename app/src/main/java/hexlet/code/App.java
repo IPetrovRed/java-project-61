@@ -2,7 +2,16 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+
+import hexlet.code.games.Even;
+
+import hexlet.code.games.GCD;
+
+import hexlet.code.games.Prime;
+
+import hexlet.code.games.Progression;
+
 
 public class App {
     public static void main(String[] args) {
@@ -43,7 +52,7 @@ public class App {
                 System.out.println("Goodbye!");
                 break;
             default:
-                System.out.println("Invalid choice!");
+                System.out.println("'" + choice + "'" + " is invalid choice, please chose between 0 and 6!");
                 break;
         }
     }

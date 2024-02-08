@@ -2,7 +2,6 @@ plugins {
     application
     jacoco
     checkstyle
-
 }
 
 group = "hexlet.code"
@@ -15,15 +14,8 @@ repositories {
 }
 
 dependencies {
-
 }
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
-
-
-
-
-
-

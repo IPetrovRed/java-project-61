@@ -28,11 +28,11 @@ public class Prime {
                 correctCount++;
             } else {
                 String correctAnswer = isPrime ? "yes" : "no";
-                Engine.wrongAnswerForText(userAnswer, correctAnswer, name);
+                Engine.wrongAnswer(userAnswer, correctAnswer, name);
                 break;
             }
-        } if (correctCount == 3){
-            Engine.congrats(name);
+        } if (correctCount == 3) {
+            Engine.congrats(Engine.getName());
         }
     }
 
