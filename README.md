@@ -1,9 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/IPetrovRed/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IPetrovRed/java-project-61/actions)
-# java-package
 
-## Asciinema:
-[https://asciinema.org/a/cwfM42L670wFBNd5VlxREIksg](https://asciinema.org/a/DUq8nqUCX6Gfq58HkELBpvDsB)
+# java-package
 
 ## Игры разума
 Проект представлен пятью играми: *"Проверка на чётность"*, *"Калькулятор"*, *"НОД"*, *"Арифметическая прогрессия"*, *"Простое ли число?"*
@@ -48,6 +46,10 @@ Congratulations, Bill!
 Let's try again, Bill!
 ```
 Первые четыре шага выполнения проекта посвящены обучению настройки окружения и реппозитория.
+
+## Пример работы программы:
+
+https://asciinema.org/a/cwfM42L670wFBNd5VlxREIksg
 
 ## Start
 
