@@ -2,15 +2,15 @@
 [![Actions Status](https://github.com/IPetrovRed/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IPetrovRed/java-project-61/actions)
 # java-package
 
-##Asciinema:
+## Asciinema:
 [https://asciinema.org/a/cwfM42L670wFBNd5VlxREIksg](https://asciinema.org/a/DUq8nqUCX6Gfq58HkELBpvDsB)
 
-##Игры разума
+## Игры разума
 Проект представлен пятью играми: "Проверка на чётность", "Калькулятор", "НОД", "Арифметическая прогрессия", "Простое ли число?"
 
 При старте проекта выводится текстовое меню выбора игр, которое, помимо пяти игр, включает два дополнительных пункта: первый - это "Приветсвие" и последний - "Выход".
 
-#ПРИМЕР:
+# ПРИМЕР:
 >Please enter the game number and press Enter.
 >1 - Greet*
 >2 - Even*
@@ -24,7 +24,7 @@
 Необходимый пункт меню нужно выбрать вводом соответсвующего номера с клавиатуры.
 В случае выбора "Приветствия" программа завершается после ввода имени игрока, поприветствовав его.
 
-#ПРИМЕР:
+# ПРИМЕР:
 >Welcome to the Brain Games!
 >May I have your name?
 
