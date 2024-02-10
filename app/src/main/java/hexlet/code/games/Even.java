@@ -6,7 +6,7 @@ import java.util.Random;
 public class Even {
     public static final int BASE_QUESTION = 0;
     public static final int BASE_ANSWER = 1;
-    private static final String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
 
     public static void playGame() {
@@ -19,7 +19,7 @@ public class Even {
             questionAnswer[BASE_QUESTION] = String.valueOf(x);
             questionAnswer[BASE_ANSWER] = (isEven(x)) ? "yes" : "no";
         }
-        Engine.playGame(gameDescription, questionsAndAnswers);
+        Engine.playGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
     public static boolean isEven(int number) {
         return number % 2 == 0;

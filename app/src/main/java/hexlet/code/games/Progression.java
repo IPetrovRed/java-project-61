@@ -7,10 +7,11 @@ import java.util.Random;
 public class Progression {
     public static final int BASE_QUESTION = 0;
     public static final int BASE_ANSWER = 1;
-    private static final String gameDescription = "\nWhat number is missing in the progression?";
+    private static final String GAME_DESCRIPTION = "\nWhat number is missing in the progression?";
     public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
-
     private static final int PROGRESSION_LENGTH = 8; //предельыная длинна прогрессии
+    private static final int START_NUMBER = 20;
+    private static final int STEP_NUMBER = 5;
 
     public static void playGame() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNTER][2];
@@ -35,16 +36,13 @@ public class Progression {
             questionAnswer[BASE_ANSWER] = String.valueOf(correctAnswer);
 
         }
-        Engine.playGame(gameDescription, questionsAndAnswers);
+        Engine.playGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
     public static int[] generateProgression(int length, Random random) {
         int[] progression = new int[length];
-        int startNumber = 20;
-        int stepNumber = 5;
-        int start = random.nextInt(startNumber) + 1;
-        int step = random.nextInt(stepNumber) + 1;
-
+        int start = random.nextInt(START_NUMBER) + 1;
+        int step = random.nextInt(STEP_NUMBER) + 1;
         for (int i = 0; i < length; i++) {
             progression[i] = start + i * step;
         }
