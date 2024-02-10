@@ -6,7 +6,7 @@ import java.util.Random;
 public class GCD {
     public static final int BASE_QUESTION = 0;
     public static final int BASE_ANSWER = 1;
-    public static String gameDescription = "Find the greatest common divisor of given numbers.";
+    private static final String gameDescription = "Find the greatest common divisor of given numbers.";
     public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
 
     public static void playGame() {

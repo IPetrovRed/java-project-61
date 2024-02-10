@@ -26,22 +26,22 @@ public class App {
         System.out.println("");
 
         switch (choice) {
-            case 1:
+            case 1: //Привествуем пользователя
                 Cli.greet();
                 break;
-            case 2:
+            case 2: //Вызов игры - четное / нечентное
                 Even.playGame();
                 break;
-            case 3:
+            case 3: //Вызов игры - калькулятор
                 Calc.playGame();
                 break;
-            case 4:
+            case 4: // Вызов игры НОД
                 GCD.playGame();
                 break;
-            case 5:
+            case 5: // Вызов игры - Прогрессия
                 Progression.playGame();
                 break;
-            case 6:
+            case 6: // Вызов игры - Простое ли число?
                 Prime.playGame();
                 break;
             case 0:

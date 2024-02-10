@@ -6,7 +6,7 @@ import java.util.Random;
 public class Calc {
     public static final int BASE_QUESTION = 0;
     public static final int BASE_ANSWER = 1;
-    public static String gameDescription = "What is the result of the expression?";
+    private static final String gameDescription = "What is the result of the expression?";
     public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
     public static final char[] OPERATORS = {'+', '-', '*'};
 
