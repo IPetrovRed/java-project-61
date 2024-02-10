@@ -49,7 +49,7 @@ Let's try again, Bill!
 
 ## Пример работы программы:
 
-<video src='https://asciinema.org/a/cwfM42L670wFBNd5VlxREIksg' width=180/>
+[![asciicast](https://asciinema.org/a/DUq8nqUCX6Gfq58HkELBpvDsB)
 
 ## Start
 
