@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/IPetrovRed/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IPetrovRed/java-project-61/actions)
 
-# java-package
+### Project #1 "BRAIN GAMES" (Игры Разума)
 
 ## Игры разума
 Проект представлен пятью играми: *"Проверка на чётность"*, *"Калькулятор"*, *"НОД"*, *"Арифметическая прогрессия"*, *"Простое ли число?"*
