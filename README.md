@@ -49,7 +49,7 @@ Let's try again, Bill!
 
 ## Пример работы программы:
 
-[![asciicast](https://asciinema.org/a/DUq8nqUCX6Gfq58HkELBpvDsB)
+[![asciicast](https://asciinema.org/a/DUq8nqUCX6Gfq58HkELBpvDsB.png)](https://asciinema.org/a/DUq8nqUCX6Gfq58HkELBpvDsB)
 
 ## Start
 
