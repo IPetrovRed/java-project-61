@@ -49,7 +49,7 @@ Let's try again, Bill!
 
 ## Пример работы программы:
 
-https://asciinema.org/a/cwfM42L670wFBNd5VlxREIksg
+<video src='https://asciinema.org/a/cwfM42L670wFBNd5VlxREIksg' width=180/>
 
 ## Start
 
