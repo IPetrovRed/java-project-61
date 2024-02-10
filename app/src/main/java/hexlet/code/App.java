@@ -32,10 +32,10 @@ public class App {
         System.out.println("");
 
         switch (choice) {
-            case 1: //Привествуем пользователя
+            case 1: //Приветствуем пользователя
                 Cli.greet();
                 break;
-            case EVEN_GAME: //Вызов игры - четное / нечентное
+            case EVEN_GAME: //Вызов игры - чётное / не чёнтное
                 Even.playGame();
                 break;
             case CALC_GAME: //Вызов игры - калькулятор
