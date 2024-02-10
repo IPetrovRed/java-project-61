@@ -1,84 +1,41 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public class Calc {
-    public static void playCalc() {
-        String description = "\nWhat is the result of the expression?";
-        Engine.greetForUser();
-        String name = Engine.getName();
-        Engine.helloUser(name);
-        Engine.gameDescription(description);
+    public static final int BASE_QUESTION = 0;
+    public static final int BASE_ANSWER = 1;
+    public static String gameDescription = "What is the result of the expression?";
+    public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
+    public static final char[] OPERATORS = {'+', '-', '*'};
 
-        int correctCount = 0;
+    public static void playGame() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNTER][2];
 
-        while (correctCount < Engine.gameLimit()) {
-            int firstNumber = Utils.generateRandomNumber();
-            int secondNumber = Utils.generateRandomNumber();
-            int operator = Utils.generateRandomOperator();
-            String operatorSymbol = "";
-
+        for (String[] questionAnswer : questionsAndAnswers) {
+            Random random = new Random();
+            int x = random.nextInt(MAX_RANDOM_INT);
+            int y = random.nextInt(MAX_RANDOM_INT);
+            int setOperator = (int) (Math.random() * OPERATORS.length);
+            char operator = OPERATORS[setOperator];
             switch (operator) {
-                case 0:
-                    operatorSymbol = "+";
+                case '+':
+                    questionAnswer[BASE_ANSWER] = String.valueOf(y + x);
                     break;
-                case 1:
-                    operatorSymbol = "-";
+                case '-':
+                    questionAnswer[BASE_ANSWER] = String.valueOf(y - x);
                     break;
-                case 2:
-                    operatorSymbol = "*";
+                case '*':
+                    questionAnswer[BASE_ANSWER] = String.valueOf(y * x);
                     break;
                 default:
                     break;
             }
-
-            Engine.question("Question: "
-                + firstNumber
-                + " "
-                + operatorSymbol
-                + " "
-                + secondNumber
-                + "\n");
-            int userAnswer = getUserAnswer();
-
-            int correctAnswer = calculateAnswer(firstNumber, secondNumber, operator);
-
-            if (userAnswer == correctAnswer) {
-                Engine.correctAnswer();
-                correctCount++;
-            } else {
-                Engine.wrongAnswer(String.valueOf(userAnswer), String.valueOf(correctAnswer), name);
-                break;
-            }
+            questionAnswer[BASE_QUESTION] = y + " " + operator + " " + x;
         }
-
-        if (correctCount == Engine.gameLimit()) {
-            Engine.congrats(name);
-        }
+        Engine.playGame(gameDescription, questionsAndAnswers);
     }
 
-    private static int calculateAnswer(int firstNumber, int secondNumber, int operator) {
-        int result = 0;
-
-        switch (operator) {
-            case 0:
-                result = firstNumber + secondNumber;
-                break;
-            case 1:
-                result = firstNumber - secondNumber;
-                break;
-            case 2:
-                result = firstNumber * secondNumber;
-                break;
-            default:
-                break;
-        }
-        return result;
-    }
-
-    private static int getUserAnswer() {
-        Engine.userAnswer();
-        return Engine.scanner.nextInt();
-    }
 }
 

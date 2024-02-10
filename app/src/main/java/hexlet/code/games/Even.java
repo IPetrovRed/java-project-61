@@ -1,42 +1,28 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public class Even {
-    public static void playEven() {
-        String description = "\nAnswer 'yes' if the number is even, otherwise answer 'no'.";
-        Engine.greetForUser();
-        String name = Engine.getName();
-        Engine.helloUser(name);
-        Engine.gameDescription(description);
+    public static final int BASE_QUESTION = 0;
+    public static final int BASE_ANSWER = 1;
+    public static String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
 
-        int correctCount = 0;
+    public static void playGame() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNTER][2];
 
-        while (correctCount < Engine.gameLimit()) {
-            int number = Utils.generateRandomNumber();
-            Engine.question("Question: "
-                    + number);
-            String userAnswer = getUserAnswer();
+        for (String[] questionAnswer : questionsAndAnswers) {
+            Random random = new Random();
+            int x = random.nextInt(MAX_RANDOM_INT);
 
-            boolean isEven = number % 2 == 0;
-            boolean isCorrectAnswer = (isEven && userAnswer.equals("yes")) || (!isEven && userAnswer.equals("no"));
-            String correctAnswer = (isEven ? "yes" : "no");
-
-            if (isCorrectAnswer) {
-                Engine.correctAnswer();
-                correctCount++;
-            } else {
-                Engine.wrongAnswer(userAnswer, correctAnswer, name);
-                break;
-            }
+            questionAnswer[BASE_QUESTION] = String.valueOf(x);
+            questionAnswer[BASE_ANSWER] = (isEven(x)) ? "yes" : "no";
         }
-        if (correctCount == Engine.gameLimit()) {
-            Engine.congrats(name);
-        }
+        Engine.playGame(gameDescription, questionsAndAnswers);
     }
-    private static String getUserAnswer() {
-        Engine.userAnswer();
-        return Engine.scanner.next();
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
-
 }
+

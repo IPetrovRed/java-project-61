@@ -1,37 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public class Prime {
-    public static void primeGame() {
-        String description  = "\nAnswer 'yes' if given number is prime. Otherwise answer 'no'.";
-        Engine.greetForUser();
-        String name = Engine.getName();
-        Engine.helloUser(name);
-        Engine.gameDescription(description);
+    public static final int BASE_QUESTION = 0;
+    public static final int BASE_ANSWER = 1;
+    public static String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
 
-        int correctCount = 0;
+    public static void playGame() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNTER][2];
 
-        while (correctCount < Engine.gameLimit()) {
-            int numberToCheck = Utils.generateRandomNumber();
-            Engine.question("Question: " + numberToCheck);
-            Engine.userAnswer();
-            String userAnswer = getUserAnswer();
-            boolean isPrime = isPrime(numberToCheck);
+        for (String[] questionAnswer : questionsAndAnswers) {
+            Random random = new Random();
+            int x = random.nextInt(MAX_RANDOM_INT);
 
-            if ((isPrime && userAnswer.equals("yes")) || (!isPrime && userAnswer.equals("no"))) {
-                Engine.correctAnswer();
-                correctCount++;
-            } else {
-                String correctAnswer = isPrime ? "yes" : "no";
-                Engine.wrongAnswer(userAnswer, correctAnswer, name);
-                break;
-            }
-        } if (correctCount == Engine.gameLimit()) {
-            Engine.congrats(name);
+            questionAnswer[BASE_QUESTION] = String.valueOf(x);
+            questionAnswer[BASE_ANSWER] = (isPrime(x)) ? "yes" : "no";
         }
+        Engine.playGame(gameDescription, questionsAndAnswers);
     }
-
     public static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
@@ -42,12 +31,8 @@ public class Prime {
                 return false;
             }
         }
-
         return true;
     }
-    private static String getUserAnswer() {
-        Engine.userAnswer();
-        return Engine.scanner.next();
-    }
-
 }
+
+

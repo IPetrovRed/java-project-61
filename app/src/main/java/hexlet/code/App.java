@@ -1,17 +1,11 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
-import hexlet.code.games.Calc;
-
 import hexlet.code.games.Even;
-
+import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
-
-import hexlet.code.games.Prime;
-
 import hexlet.code.games.Progression;
-
+import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {
@@ -29,30 +23,35 @@ public class App {
 
         int choice = scanner.nextInt();
 
+        System.out.println("");
+
         switch (choice) {
             case 1:
                 Cli.greet();
                 break;
             case 2:
-                Even.playEven();
+                Even.playGame();
                 break;
             case 3:
-                Calc.playCalc();
+                Calc.playGame();
                 break;
             case 4:
-                GCD.gcdGame();
+                GCD.playGame();
                 break;
             case 5:
-                Progression.progressionGame();
+                Progression.playGame();
                 break;
             case 6:
-                Prime.primeGame();
+                Prime.playGame();
                 break;
             case 0:
                 System.out.println("Goodbye!");
                 break;
             default:
-                System.out.println("'" + choice + "'" + " is invalid choice, please chose between 0 and 6!");
+                System.out.println("'"
+                        + choice
+                        + "'"
+                        + " is invalid choice, please chose between 0 and 6!");
                 break;
         }
     }

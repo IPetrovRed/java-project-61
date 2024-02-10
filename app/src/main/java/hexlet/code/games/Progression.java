@@ -3,22 +3,20 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Progression {
-    public static void progressionGame() {
-        String description = "\nWhat number is missing in the progression?";
-        Engine.greetForUser();
-        String name = Engine.getName();
-        Engine.helloUser(name);
-        Engine.gameDescription(description);
+    public static final int BASE_QUESTION = 0;
+    public static final int BASE_ANSWER = 1;
+    public static String gameDescription = "\nWhat number is missing in the progression?";
+    public static final int MAX_RANDOM_INT = 100; //предельный показатель случайного числа
 
-        Random random = new Random();
+    public static void playGame() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNTER][2];
 
-        int correctCount = 0;
-
-        while (correctCount < Engine.gameLimit()) {
-
+        for (String[] questionAnswer : questionsAndAnswers) {
+            Random random = new Random();
+            int x = random.nextInt(MAX_RANDOM_INT);
+            int y = random.nextInt(MAX_RANDOM_INT);
             int progressionLength = 8;
             int[] progression = generateProgression(progressionLength, random);
             int hiddenIndex = random.nextInt(progressionLength);
@@ -30,20 +28,12 @@ public class Progression {
                     .replace(", ", " ")
                     .replace("[", "")
                     .replace("]", "");
-            Engine.question("Question: " + formattedProgression);
-            Engine.userAnswer();
-            int userAnswer = new Scanner(System.in).nextInt();
 
-            if (userAnswer == correctAnswer) {
-                Engine.correctAnswer();
-                correctCount++;
-            } else {
-                Engine.wrongAnswerNumbers(userAnswer, correctAnswer, name);
-                break;
-            }
-        } if (correctCount == Engine.gameLimit()) {
-            Engine.congrats(name);
+            questionAnswer[BASE_QUESTION] = formattedProgression;
+            questionAnswer[BASE_ANSWER] = String.valueOf(correctAnswer);
+
         }
+        Engine.playGame(gameDescription, questionsAndAnswers);
     }
 
     public static int[] generateProgression(int length, Random random) {
@@ -54,7 +44,9 @@ public class Progression {
         for (int i = 0; i < length; i++) {
             progression[i] = start + i * step;
         }
-
         return progression;
     }
 }
+
+
+
