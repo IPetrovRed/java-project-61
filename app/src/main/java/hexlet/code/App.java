@@ -8,6 +8,12 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class App {
+    private static final int EVEN_GAME = 2;
+    private static final int CALC_GAME = 3;
+    private static final int GCD_GAME = 4;
+    private static final int PROGRESSION_GAME = 5;
+    private static final int PRIME_GAME = 6;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -29,19 +35,19 @@ public class App {
             case 1: //Привествуем пользователя
                 Cli.greet();
                 break;
-            case 2: //Вызов игры - четное / нечентное
+            case EVEN_GAME: //Вызов игры - четное / нечентное
                 Even.playGame();
                 break;
-            case 3: //Вызов игры - калькулятор
+            case CALC_GAME: //Вызов игры - калькулятор
                 Calc.playGame();
                 break;
-            case 4: // Вызов игры НОД
+            case GCD_GAME: // Вызов игры НОД
                 GCD.playGame();
                 break;
-            case 5: // Вызов игры - Прогрессия
+            case PROGRESSION_GAME: // Вызов игры - Прогрессия
                 Progression.playGame();
                 break;
-            case 6: // Вызов игры - Простое ли число?
+            case PRIME_GAME: // Вызов игры - Простое ли число?
                 Prime.playGame();
                 break;
             case 0:
