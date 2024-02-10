@@ -69,7 +69,7 @@ make build
 make run
 ```
 
-# Run-dist
+## Run-dist
 
 ```bash
 make run-dist
