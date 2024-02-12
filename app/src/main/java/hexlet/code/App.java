@@ -32,22 +32,22 @@ public class App {
         System.out.println("");
 
         switch (choice) {
-            case 1: //Приветствуем пользователя
+            case 1: // greet for new player
                 Cli.greet();
                 break;
-            case EVEN_GAME: //Вызов игры - чётное / не чёнтное
+            case EVEN_GAME: // run <Even> game
                 Even.playGame();
                 break;
-            case CALC_GAME: //Вызов игры - калькулятор
+            case CALC_GAME: // run <Calculator> game
                 Calc.playGame();
                 break;
-            case GCD_GAME: // Вызов игры НОД
+            case GCD_GAME: // ru game <NOD>
                 GCD.playGame();
                 break;
-            case PROGRESSION_GAME: // Вызов игры - Прогрессия
+            case PROGRESSION_GAME: // run game <Progression>
                 Progression.playGame();
                 break;
-            case PRIME_GAME: // Вызов игры - Простое ли число?
+            case PRIME_GAME: // run game <is number prime?>
                 Prime.playGame();
                 break;
             case 0:

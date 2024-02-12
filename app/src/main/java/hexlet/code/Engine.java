@@ -3,9 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int BASE_QUESTION = 0; //запись параметра по 0 индекску строки (вопрос)
-    public static final int BASE_ANSWER = 1; //запись параметра по 1 индекску строки (коректные ответы пользователя)
-    public static final int ROUNDS_COUNTER = 3; // ограничиваем запись раундов в массиве
+    public static final int BASE_QUESTION = 0; // saving parameter on zero index of line (question)
+    public static final int BASE_ANSWER = 1; // saving parameter on first index of line (answer)
+    public static final int ROUNDS_COUNTER = 3; // game rounds limitation by limit of data in array.
     public static void playGame(String task, String[][] questionsAndAnswers) {
         System.out.print("Welcome to the Brain Games!\n"
                 + "May I have your name? ");
