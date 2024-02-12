@@ -7,13 +7,14 @@ public class Calc {
     public static final int BASE_ANSWER = 1;
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
     public static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int MAX_RANDOM_NUMBER = 100;
 
     public static void playGame() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNTER][2];
 
         for (String[] questionAnswer : questionsAndAnswers) {
-            int x = Utils.generateNumber(100,1);
-            int y = Utils.generateNumber(100,1);
+            int x = Utils.generateNumber(MAX_RANDOM_NUMBER, 1);
+            int y = Utils.generateNumber(MAX_RANDOM_NUMBER, 1);
             int setOperator = (int) (Math.random() * OPERATORS.length);
             char operator = OPERATORS[setOperator];
             switch (operator) {

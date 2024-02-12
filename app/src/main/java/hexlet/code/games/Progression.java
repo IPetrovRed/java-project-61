@@ -18,9 +18,9 @@ public class Progression {
 
         for (String[] questionAnswer : questionsAndAnswers) {
             Random random = new Random();
-            int first = Utils.generateNumber(FIRST_NUMBER,1);
-            int step = Utils.generateNumber(STEP,1);
-            String[] progression = makeProgression(first,step,PROGRESSION_LENGTH);
+            int first = Utils.generateNumber(FIRST_NUMBER, 1);
+            int step = Utils.generateNumber(STEP, 1);
+            String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
             int hiddenIndex = random.nextInt(PROGRESSION_LENGTH);
             String correctAnswer = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
