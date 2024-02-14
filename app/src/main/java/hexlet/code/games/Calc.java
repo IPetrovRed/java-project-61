@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    public static final int BASE_QUESTION = 0;
-    public static final int BASE_ANSWER = 1;
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
     public static final char[] OPERATORS = {'+', '-', '*'};
     private static final int MAX_RANDOM_NUMBER = 100;
@@ -17,23 +15,26 @@ public class Calc {
             int y = Utils.generateNumber(MAX_RANDOM_NUMBER, 1);
             int setOperator = (int) (Math.random() * OPERATORS.length);
             char operator = OPERATORS[setOperator];
-            switch (operator) {
-                case '+':
-                    questionAnswer[BASE_ANSWER] = String.valueOf(y + x);
-                    break;
-                case '-':
-                    questionAnswer[BASE_ANSWER] = String.valueOf(y - x);
-                    break;
-                case '*':
-                    questionAnswer[BASE_ANSWER] = String.valueOf(y * x);
-                    break;
-                default:
-                    throw new RuntimeException("Unknown operator: " + operator);
-            }
-            questionAnswer[BASE_QUESTION] = y + " " + operator + " " + x;
+            calculate(operator, x, y, questionAnswer);
         }
         Engine.playGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
-
+    private static void calculate(char operator, int x, int y, String[] questionAnswer) {
+        switch (operator) {
+            case '+':
+                questionAnswer[1] = String.valueOf(y + x);
+                break;
+            case '-':
+                questionAnswer[1] = String.valueOf(y - x);
+                break;
+            case '*':
+                questionAnswer[1] = String.valueOf(y * x);
+                break;
+            default:
+                throw new RuntimeException("Unknown operator: " + operator);
+        }
+        questionAnswer[0] = y + " " + operator + " " + x;
+    }
 }
+
 
