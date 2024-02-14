@@ -8,11 +8,17 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class App {
+
     private static final int EVEN_GAME = 2;
+
     private static final int CALC_GAME = 3;
+
     private static final int GCD_GAME = 4;
+
     private static final int PROGRESSION_GAME = 5;
+
     private static final int PRIME_GAME = 6;
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

@@ -3,10 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
+
     private static final String GAME_DESCRIPTION = "\nWhat number is missing in the progression?";
+
     private static final int PROGRESSION_LENGTH = 8; // max limit of progression line.
 
     private static final int FIRST_NUMBER = 20;
+
     private static final int STEP = 5;
 
     public static void playGame() {
